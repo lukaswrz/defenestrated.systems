@@ -1,0 +1,26 @@
+<ul class="entries">
+  {% for src_file, entry in entries|dictsort(by="value", reverse=True) %}
+    <li>
+      <article>
+        <header>
+          <h2>
+            <a href="/entries/{{ src_file | url_quote_plus }}">{{ entry.title }}</a>
+          </h2>
+          <time datetime="{{ entry.published.strftime("%Y-%m-%dT%H:%M:%S") }}" pubdate>{{ format_datetime(entry.published, locale=locale) }}</time>
+        </header>
+        <p>{{ entry.description }}</p>
+        <footer>
+          <ul class="tags">
+            {% for tag in entry.tags %}
+              <li>
+                <a href="/tags/{{ tag | url_quote_plus }}.html">
+                  <span class="tag">{{tag}}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </footer>
+      </article>
+    </li>
+  {% endfor %}
+</ul>

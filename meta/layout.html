@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block layout %}
+  <header>
+    <div>
+      <a href="/">defenestrated.systems</a>
+    </div>
+    {% include 'menu.html' %}
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    &#x1f12f; {{ now.strftime('%Y') }} Lukas Wurzinger
+  </footer>
+{% endblock %}

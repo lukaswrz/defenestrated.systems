@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block head %}
+  {{ super() }}
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml" />
+{% endblock %}
+{% block content %}
+  <h1>Entries</h1>
+
+  {% include 'entries.html' %}
+{% endblock %}

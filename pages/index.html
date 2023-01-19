@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block layout %}
+  <main class="introduction">
+    <a href="/">
+      <img class="logo" src="/logo.svg" alt="Logo" />
+    </a>
+    <a href="/">defenestrated.systems</a>
+    {% include "menu.html" %}
+  </main>
+{% endblock %}

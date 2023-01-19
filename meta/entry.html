@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block head %}
+  {{ super() }}
+  <meta name="description" content="{{ description }}" />
+  <meta name="keywords" content="{{ ", ".join(tags) }}">
+  <meta name="author" content="Lukas Wurzinger">
+{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+  <div class="attributes">
+    <h1 class="title">{{ title }}</h1>
+    <time datetime="{{ published.strftime("%Y-%m-%dT%H:%M:%S") }}">{{ format_datetime(published, locale=locale) }}</time>
+  </div>
+
+  <article class="entry">
+    {% block article %}
+    {% endblock %}
+  </article>
+
+  <div class="reply">
+    <a class="reply" href="mailto:lukas@wrz.one?subject={{ title | url_quote_plus }}">Reply</a>
+  </div>
+
+  <ul class="tags">
+    {% for tag in tags %}
+      <li>
+        <a href="/tags/{{ tag | url_quote_plus }}.html">
+          <span class="tag">{{tag}}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
